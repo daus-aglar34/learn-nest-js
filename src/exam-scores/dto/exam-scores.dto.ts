@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { ArrayMaxSize, ArrayMinSize, IsArray, IsNotEmpty, IsNumber, Min, Max, IsOptional } from "class-validator";
+import { ArrayMaxSize, ArrayMinSize, IsArray, IsNotEmpty, IsNumber, Min, Max, IsOptional } from "@nestjs/class-validator";
 
 export class ScoresDto {
     @IsNotEmpty()

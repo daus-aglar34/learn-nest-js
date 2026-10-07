@@ -1,5 +1,5 @@
 import { Type, Transform } from "class-transformer";
-import { ArrayMaxSize, ArrayMinSize, IsArray, IsInt, IsNotEmpty, IsNumber, IsOptional, IsString, MaxLength, Min, Max, MinLength, ValidateNested } from "class-validator";
+import { ArrayMaxSize, ArrayMinSize, IsArray, IsInt, IsNotEmpty, IsNumber, IsOptional, IsString, MaxLength, Min, Max, MinLength, ValidateNested } from "@nestjs/class-validator";
 
 export class SplitBillParamsDto {
     @IsNotEmpty()

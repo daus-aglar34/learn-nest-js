@@ -1,5 +1,5 @@
 import { Transform, Type } from "class-transformer";
-import { IsNotEmpty, IsNumber, Min, Max, IsOptional, IsBoolean } from "class-validator";
+import { IsNotEmpty, IsNumber, Min, Max, IsOptional, IsBoolean } from "@nestjs/class-validator";
 
 export class TaxDto {
     @IsNotEmpty()

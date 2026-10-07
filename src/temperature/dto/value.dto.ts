@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, Min, Max, IsString, IsIn } from "class-validator";
+import { IsNotEmpty, IsNumber, Min, Max, IsString, IsIn } from "@nestjs/class-validator";
 
 export class DegreeParamsDto {
     @IsNotEmpty()
