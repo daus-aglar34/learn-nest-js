@@ -1,43 +1,37 @@
 import { Injectable } from '@nestjs/common';
-import { DegreeParamsDto, DegreeQueryDto } from './dto/value.dto.js';
+import { TemperatureDto } from './dto/value.dto.js';
 
 @Injectable()
 export class TemperatureService {
-
-    convert(params: DegreeParamsDto, query: DegreeQueryDto) {
-        const { value } = params;
-        const { from, to } = query;
-
-        let tempInC: number;
-
-        if (from === 'C') {
-            tempInC = value;
-        } else if (from === 'F') {
-            tempInC = (value - 32) * (5 / 9);
-        } else {
-            tempInC = value - 273.15;
-        }
+    convertTemperature(dto: TemperatureDto) {
+        const { value, from, to } = dto;
 
         let result: number;
 
-        if (to === 'C') {
-            result = tempInC;
-        } else if (to === 'F') {
-            result = tempInC * (9 / 5) + 32;
+        if (from === 'C' && to === 'F') {
+            result = (value * 9 / 5) + 32;
+        } else if (from === 'F' && to === 'C') {
+            result = (value - 32) * 5 / 9;
+        } else if (from === 'C' && to === 'K') {
+            result = value + 273.15;
+        } else if (from === 'K' && to === 'C') {
+            result = value - 273.15;
+        } else if (from === 'F' && to === 'K') {
+            result = (value - 32) * 5 / 9 + 273.15;
+        } else if (from === 'K' && to === 'F') {
+            result = (value - 273.15) * 9 / 5 + 32;
         } else {
-            result = tempInC + 273.15;
+            result = value;
         }
-
-        result = Number(result.toFixed(2));
 
         return {
             success: true,
             message: 'Temperature converted',
             data: {
-                value: value,
-                from: from,
-                to: to,
-                result: result,
+                value,
+                from,
+                to,
+                result,
             },
         };
     }

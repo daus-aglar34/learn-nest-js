@@ -1,19 +1,23 @@
-import { Controller, Get, Param, Query, BadRequestException } from '@nestjs/common';
+import { Controller, Get, Param, Query, ParseFloatPipe } from '@nestjs/common';
 import { TemperatureService } from './temperature.service.js';
-import { DegreeParamsDto, DegreeQueryDto } from './dto/value.dto.js';
+import { TemperatureDto } from './dto/value.dto.js';
 
-@Controller('temperature')
+@Controller('convert')
 export class TemperatureController {
-  constructor(private readonly temperatureService: TemperatureService) { }
+  constructor(
+    private readonly temperatureService: TemperatureService,
+  ) { }
 
-  @Get(':value/convert')
+  @Get('temperature/:value')
   convertTemperature(
-    @Param() params: DegreeParamsDto,
-    @Query() query: DegreeQueryDto,
+    @Param('value', ParseFloatPipe) value: number,
+    @Query('from') from: string,
+    @Query('to') to: string,
   ) {
-    if (query.from === query.to) {
-      throw new BadRequestException('to must be different from from');
-    }
-    return this.temperatureService.convert(params, query);
+    const dto: TemperatureDto = {
+      value, from, to,
+    };
+
+    return this.temperatureService.convertTemperature(dto);
   }
 }

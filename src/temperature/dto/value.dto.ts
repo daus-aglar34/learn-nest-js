@@ -1,21 +1,19 @@
-import { IsNotEmpty, IsNumber, Min, Max, IsString, IsIn } from "@nestjs/class-validator";
+import { IsIn, IsNotEmpty, IsNumber, IsString, Max, Min } from 'class-validator';
 
-export class DegreeParamsDto {
+export class TemperatureDto {
     @IsNotEmpty()
     @IsNumber()
     @Min(-273.15)
     @Max(1000)
-    value: number
-}
-
-export class DegreeQueryDto {
-    @IsNotEmpty()
-    @IsString()
-    @IsIn(['C', 'F', 'K'])
-    from: string
+    value: number;
 
     @IsNotEmpty()
     @IsString()
     @IsIn(['C', 'F', 'K'])
-    to: string
+    from: string;
+
+    @IsNotEmpty()
+    @IsString()
+    @IsIn(['C', 'F', 'K'])
+    to: string;
 }

@@ -6,10 +6,12 @@ import { SalesTaxModule } from './sales-tax/sales-tax.module.js';
 import { ExamScoresModule } from './exam-scores/exam-scores.module.js';
 import { RestaurantBillModule } from './restaurant-bill/restaurant-bill.module.js';
 import { TemperatureModule } from './temperature/temperature.module.js';
+import { CheckoutModule } from './checkout/checkout.module.js';
+import { LoansModule } from './loans/loans.module.js';
 
 @Module({
-  imports: [ConvertMeterModule, SalesTaxModule, ExamScoresModule, RestaurantBillModule, TemperatureModule],
+  imports: [ConvertMeterModule, SalesTaxModule, ExamScoresModule, RestaurantBillModule, TemperatureModule, CheckoutModule, LoansModule],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
