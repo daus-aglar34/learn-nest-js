@@ -8,9 +8,11 @@ import { RestaurantBillModule } from './restaurant-bill/restaurant-bill.module.j
 import { TemperatureModule } from './temperature/temperature.module.js';
 import { CheckoutModule } from './checkout/checkout.module.js';
 import { LoansModule } from './loans/loans.module.js';
+import { BillsModule } from './bills/bills.module.js';
+import { ParkingModule } from './parking/parking.module.js';
 
 @Module({
-  imports: [ConvertMeterModule, SalesTaxModule, ExamScoresModule, RestaurantBillModule, TemperatureModule, CheckoutModule, LoansModule],
+  imports: [ConvertMeterModule, SalesTaxModule, ExamScoresModule, RestaurantBillModule, TemperatureModule, CheckoutModule, LoansModule, BillsModule, ParkingModule],
   controllers: [AppController],
   providers: [AppService],
 })
