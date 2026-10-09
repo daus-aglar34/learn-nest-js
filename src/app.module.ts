@@ -10,9 +10,10 @@ import { CheckoutModule } from './checkout/checkout.module.js';
 import { LoansModule } from './loans/loans.module.js';
 import { BillsModule } from './bills/bills.module.js';
 import { ParkingModule } from './parking/parking.module.js';
+import { ShippingModule } from './shipping/shipping.module.js';
 
 @Module({
-  imports: [ConvertMeterModule, SalesTaxModule, ExamScoresModule, RestaurantBillModule, TemperatureModule, CheckoutModule, LoansModule, BillsModule, ParkingModule],
+  imports: [ConvertMeterModule, SalesTaxModule, ExamScoresModule, RestaurantBillModule, TemperatureModule, CheckoutModule, LoansModule, BillsModule, ParkingModule, ShippingModule],
   controllers: [AppController],
   providers: [AppService],
 })

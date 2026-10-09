@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CheckoutDto } from './dto/checkout.dto.js';
 
 @Injectable()
@@ -22,6 +22,10 @@ export class CheckoutService {
             couponDiscount = subtotal * 0.10;
         } else if (coupon === 'HEMAT20') {
             couponDiscount = subtotal * 0.20;
+        } else if (coupon === 'FREESHIP') {
+            couponDiscount = 0
+        } else {
+            throw new BadRequestException
         }
 
         const totalDiscount = memberDiscount + couponDiscount;

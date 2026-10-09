@@ -8,12 +8,8 @@ export class LoanService {
         const { currency } = query;
         const { months, annualInterestRate } = body;
 
-        // Contoh Perhitungan Flat Rate:
-        // 1. Hitung total bunga selama periode pinjaman
-        // Bunga = Pokok * (Bunga Tahunan / 100) * (Bulan / 12)
         const totalInterest = principal * (annualInterestRate / 100) * (months / 12);
 
-        // 2. Hitung total yang harus dibayar
         const totalPayment = principal + totalInterest;
 
         // 3. Hitung cicilan per bulan
